@@ -13,6 +13,8 @@ Full-stack e-commerce site for LVN’LARGE (Living Large). The master brief is i
    [supabase/migrations/0001_initial_schema.sql](supabase/migrations/0001_initial_schema.sql) → **Run**.
    Run each migration file once, in number order.
 4. Check everything: `node --env-file=.env.local scripts/check-setup.mjs`
+   and test the catalogue rules: `node --env-file=.env.local scripts/test-catalogue.mjs`
+   (creates a temporary admin + test products, checks publishing/stock/photo rules, then deletes them).
 5. Start the site: `npm run dev` → http://localhost:3000
 
 ## Environment variables
@@ -54,6 +56,13 @@ Roles in the database: `owner`, `order_manager`, `inventory_manager`, `marketing
 
 - Money is stored in **kobo** (₦1 = 100 kobo), as Paystack expects.
 - Each size + colour combination is a separate variant with its own stock.
+- Stock only changes through `set_stock` / `adjust_stock` (database functions), which never go
+  below 0 and record every change in `stock_movements`. Admins can't write `stock_quantity` directly.
+- A product can't be published without a price, a photo and a size (Coming soon products need no size).
+- Anything that has been ordered can't be deleted — products are archived, sizes/colours switched off.
+- Photos are shrunk to 2000px wide in the browser, then uploaded straight to the Supabase Storage
+  bucket `catalogue` (public read, admin-only upload, JPG/PNG/WebP, 8 MB max).
+- The admin is mobile-first: bottom tab bar on phones, 16px inputs (no iOS zoom), 48px buttons.
 - Adding to the bag never reserves stock; stock is deducted only after Paystack payment is verified
   on the server.
 - Order references (`LVN-0001`, …) are assigned only to **paid** orders, so the physical order book

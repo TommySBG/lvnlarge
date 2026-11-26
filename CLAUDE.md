@@ -1260,7 +1260,7 @@ Decisions the owner has confirmed. These override earlier open items above.
 - Applicable charges are ₦0 for now.
 - Sizes: S, M, L, XL, XXL, 3XL and One Size (caps). No XS.
 - Product photos are shrunk to a maximum of 2000px wide before upload.
-- Low-stock warning when a size/colour has 3 or fewer left (adjustable per variant).
+- Low-stock warning when a size/colour has 3 or fewer left (adjustable per product).
 - Size measurements are not available yet; the owner fills in size guides later from the admin.
 - The admin dashboard is mobile-first (see Section 19).
 

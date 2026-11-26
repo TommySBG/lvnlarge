@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#0b0b0c",
+  viewportFit: "cover", // lets the phone tab bar respect the iPhone home indicator
 };
 
 // Applies the saved theme before first paint (dark unless the visitor chose light).

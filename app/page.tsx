@@ -11,7 +11,7 @@ export default function Home() {
         LVN’LARGE
       </h1>
       <p className="text-sm uppercase tracking-[0.3em] text-ink-muted">
-        Wear luxury. Feel luxury. Be luxury.
+        LIVE LARGE. The World Is Yours.
       </p>
       <span className="mt-6 h-px w-16 bg-army-strong" aria-hidden="true" />
       <p className="text-ink-muted">The store is being built. Launching December 2026.</p>
