@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
   },
+  // Development only: lets the owner test the admin on an iPhone over home
+  // Wi-Fi (e.g. http://192.168.0.200:3000). Has no effect on the live site.
+  allowedDevOrigins: ["192.168.0.*"],
   cacheComponents: true,
   partialPrefetching: true,
   images: {
