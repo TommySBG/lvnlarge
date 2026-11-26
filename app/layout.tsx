@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Manrope } from "next/font/google";
+import { InlineScript } from "@/components/inline-script";
+import { ThemeSync } from "@/components/theme-sync";
 import "./globals.css";
 
 // Placeholder typefaces until the owner confirms brand fonts.
@@ -38,9 +40,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <InlineScript html={themeScript} />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeSync />
+        {children}
+      </body>
     </html>
   );
 }

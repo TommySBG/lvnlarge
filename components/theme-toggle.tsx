@@ -3,16 +3,16 @@
 import { useSyncExternalStore } from "react";
 
 type Theme = "dark" | "light";
-const STORAGE_KEY = "lvn-theme";
-const EVENT = "lvn-theme-change";
+export const THEME_STORAGE_KEY = "lvn-theme";
+export const THEME_EVENT = "lvn-theme-change";
 
 function readTheme(): Theme {
   return document.documentElement.dataset.theme === "light" ? "light" : "dark";
 }
 
 function subscribe(onChange: () => void) {
-  window.addEventListener(EVENT, onChange);
-  return () => window.removeEventListener(EVENT, onChange);
+  window.addEventListener(THEME_EVENT, onChange);
+  return () => window.removeEventListener(THEME_EVENT, onChange);
 }
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
@@ -22,11 +22,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
   function toggle() {
     document.documentElement.dataset.theme = next;
     try {
-      localStorage.setItem(STORAGE_KEY, next);
+      localStorage.setItem(THEME_STORAGE_KEY, next);
     } catch {
       // Private browsing: theme still switches for this visit.
     }
-    window.dispatchEvent(new Event(EVENT));
+    window.dispatchEvent(new Event(THEME_EVENT));
   }
 
   return (
