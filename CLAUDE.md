@@ -333,8 +333,8 @@ Do not use generic product names when the owner has supplied a specific name.
 
 ### Sizes
 
-Support configurable sizes such as:
-XS, S, M, L, XL and XXL.
+Support configurable sizes. The owner's confirmed sizes are:
+S, M, L, XL, XXL and 3XL, plus One Size for caps. LVN’LARGE does not use XS.
 
 The administrator must be able to configure available sizes for individual products.
 
@@ -722,6 +722,18 @@ The owner is the initial administrator and founder/CEO.
 
 Build a secure admin dashboard for managing the entire store.
 
+### Mobile-First Admin
+
+The owner manages products, photos and stock from an iPhone.
+
+Every admin screen must be designed mobile-first and be easy to use on a phone:
+
+- Large tap targets and readable text.
+- Form inputs that do not trigger iOS zoom (16px or larger).
+- Photo upload directly from the iPhone camera or photo library.
+- Navigation reachable with one thumb.
+- No feature that only works on a desktop.
+
 ### Dashboard Overview
 
 Display:
@@ -818,6 +830,16 @@ Distinguish between:
 Provide useful sales and inventory reports.
 
 Allow CSV export where appropriate.
+
+#### Sales Page (required for launch — roadmap step 5)
+
+Show, from verified paid orders only:
+
+- Total sales in naira since launch.
+- Sales in naira for today, this week and this month.
+- Number of orders for each of those periods.
+
+Use Nigerian time (Africa/Lagos, WAT) for "today", "this week" and "this month". Weeks start on Monday.
 
 ### Notifications
 
@@ -1224,5 +1246,37 @@ First:
 9. Ask for approval before major changes or paid services.
 
 The first objective is to understand what already exists and establish a safe development plan.
+
+---
+
+## 27. OWNER DECISIONS LOG
+
+Decisions the owner has confirmed. These override earlier open items above.
+
+- Stack: Next.js + Supabase + Resend + Paystack (Test Mode). Vercel free plan during development; Vercel Pro or Netlify free to be chosen before launch.
+- Email entry gate is compulsory for every visitor. Marketing consent is a separate, optional, unticked checkbox.
+- Order references look like LVN-0001 and are assigned only to paid orders.
+- If an item sells out between payment and confirmation, the order is flagged "Needs attention" and the owner is alerted.
+- Applicable charges are ₦0 for now.
+- Sizes: S, M, L, XL, XXL, 3XL and One Size (caps). No XS.
+- Product photos are shrunk to a maximum of 2000px wide before upload.
+- Low-stock warning when a size/colour has 3 or fewer left (adjustable per variant).
+- Size measurements are not available yet; the owner fills in size guides later from the admin.
+- The admin dashboard is mobile-first (see Section 19).
+
+### Approved roadmap
+
+1. Foundation — database, admin login, theme. (Complete)
+2. Admin: products, photos, sizes/colours, stock, collections, size guides, settings.
+3. Storefront — email entry, welcome screen, navigation, home, collections, Shop All, product pages.
+4. Bag and payment — bag, persistent bag, checkout, Paystack, stock validation, confirmation screen.
+5. Orders — admin orders and pickup workflow, order tracking, PDF receipt, confirmation email, CSV export, Sales page.
+6. Launch prep — security review, mobile testing, paid hosting, Paystack live mode after approval.
+
+Must-have for December 15: email entry, welcome screen, home, collections, Shop All, product pages, bag, checkout, Paystack, receipt, order tracking, admin for orders, products and stock, Sales page.
+
+After launch: push notifications, staff roles, wider reports, customer gallery photos.
+
+---
 
 **Remember: LVN’LARGE is a real fashion business. Build it with the quality, security, reliability and attention to detail expected of a professional e-commerce brand.**
