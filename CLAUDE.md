@@ -214,14 +214,20 @@ The visual direction should communicate confidence and a distinctive fashion ide
 
 ### D. PLAIN TEES/JOGGERS
 
-A collection of plain T-shirts and Joggers in different colours and sizes.
+A collection of plain T-shirts and plain joggers only, in different colours and sizes.
+
+It contains no printed, branded or customised designs. Customised joggers belong in LVN'LRG Joggers (Collection E).
 
 This is an important commercial category for the brand.
 
 ### E. LVN'LRG Joggers
-A typography-focused collection with expressive text, fashionable statements and premium streetwear styling.
+
+The owner's customised LVN'LARGE joggers merch.
+
+These are branded/customised joggers, distinct from the plain joggers in Collection D.
 
 The visual direction should communicate confidence and a distinctive fashion identity.
+
 ### F. COMBINE YOU
 
 A styling-focused collection presenting curated combinations of LVN’LARGE products.
