@@ -27,7 +27,7 @@ export function EnterForm({ next }: { next: string }) {
     return (
       <div className="mt-7 flex animate-rise flex-col items-center gap-5" role="status" aria-live="polite">
         <p className="flex items-center gap-2 text-base text-white">
-          <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 text-[#9aa66a]" fill="none" stroke="currentColor" strokeWidth={2.4}>
+          <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 text-army-glow" fill="none" stroke="currentColor" strokeWidth={2.4}>
             <path d="M5 12.5l4.5 4.5L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           {state.message}
@@ -84,7 +84,7 @@ export function EnterForm({ next }: { next: string }) {
       </div>
 
       <label className="mt-1 flex cursor-pointer items-start gap-3 px-1 text-sm text-white/75">
-        <input name="marketing" type="checkbox" className="mt-0.5 h-5 w-5 shrink-0 accent-[#6b7744]" />
+        <input name="marketing" type="checkbox" className="mt-0.5 h-5 w-5 shrink-0 accent-army-strong" />
         <span>Email me about new drops and offers (optional)</span>
       </label>
 

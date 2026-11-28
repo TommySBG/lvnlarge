@@ -38,11 +38,11 @@ The brand should communicate confidence, uniqueness, luxury and modern streetwea
 
 ### Visual Identity
 
-Primary colours:
+Primary colours (updated by the owner, see §27):
 
 - Black
-- Silver
-- Dark army green
+- Sharp, bright metallic silver (not grey)
+- Army green (a normal army green, not dark)
 
 Avoid bright green and unnecessary colourful combinations.
 
@@ -1267,8 +1267,11 @@ Decisions the owner has confirmed. These override earlier open items above.
 
 ### Storefront design decisions (step 3)
 
-- Look: premium and luxury, not plain. Black, silver (brushed-chrome type like the logo) and deep army green, with smooth, purposeful animations that respect reduced-motion settings. The owner's screenshots, motion-clothing-brand.vercel.app and bolapsd.xyz are inspiration only — never copied.
+- Look: premium and luxury, not plain. Palette is black, army green and sharp silver. Silver must be bright and metallic, never grey, with a subtle silver gradient/shine on key text and icons. The green is a normal army green (not dark). Smooth, purposeful animations that respect reduced-motion settings. The owner's screenshots, motion-clothing-brand.vercel.app and bolapsd.xyz are inspiration only — never copied.
 - Mobile-first: every storefront screen must look great on an iPhone first, then scale up to desktop.
+- Logo: much bigger and clearly visible in the header, in silver. Just the logo — no "LVN'LARGE" text beside it.
+- Header (every page): each nav link (Home, Collections, Shop All, LVN Gallery, About) sits in its own glassmorphism pill — frosted glass, silver tint, thin silver border — with bold, readable silver text (never tiny). Search, bag and the dark/light switch are bold silver icons with no bubble. The header is dark frosted glass in both themes so page content never clashes with it while scrolling; over the welcome photo it is clear. On iPhone the pills move into a full-screen glass menu.
+- Welcome section: the founder's photo fills the whole screen as the background, lightly blurred (still recognisable), under a soft dark overlay. Text centred in the middle, stacked: WELCOME (very big) / TO (small, just under) / LVN'LARGE (big, bold, elegant luxury serif — Cinzel — sharp silver) / "Live Large. The World Is Yours." (bold flowing script — Great Vibes — just under LVN'LARGE with a little space). Gentle fade-in animation. Inspired by, not copied from, the owner's Zanerobe and Motion screenshots.
 - Brand assets: logo `public/brand/logo.png` (silver LL, transparent background); welcome photo `public/brand/welcome.jpg` (founder).
 - Email entry: a small glass box, centred and standing out on the phone screen, over a blurred campaign photo (owner's screenshot 1). Optional, unticked marketing box. After "Thank you for subscribing." the visitor goes into the store. The browser remembers the visitor for a year.
 - Home page order: full-screen welcome → LVN'LARGE Collections as a 3D card carousel (featured collections first) with a "View all" button → LVN Gallery preview as a notebook of clipped photos with a "View the gallery" button → Coming Soon (campaign photo with the upcoming pieces over it; teasers: rings, wristwatches, chains, shades, beanies, belts) → New In → brand line → footer.

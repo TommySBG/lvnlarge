@@ -33,9 +33,9 @@ const story = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-7xl px-5 pb-24 pt-28 sm:px-8 sm:pt-36">
+    <div className="mx-auto max-w-7xl px-5 pb-24 pt-[calc(var(--header-total)+2.5rem)] sm:px-8 sm:pt-[calc(var(--header-total)+4rem)]">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
-        <div className="lg:sticky lg:top-28 lg:self-start">
+        <div className="lg:sticky lg:top-[calc(var(--header-total)+2rem)] lg:self-start">
           <div className="relative mx-auto flex aspect-square max-w-md animate-fade items-center justify-center rounded-[2.5rem] border border-line bg-[radial-gradient(circle_at_50%_40%,var(--surface-2),var(--bg)_70%)]">
             <Image src={logo} alt="LVN’LARGE logo" priority className="h-auto w-3/5 drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]" />
           </div>

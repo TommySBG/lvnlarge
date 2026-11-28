@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-5 pb-[calc(2.5rem+env(safe-area-inset-bottom))] pt-16 sm:px-8">
         <div className="flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
           <div className="max-w-sm">
-            <Image src={logo} alt="" className="h-16 w-auto" />
+            <Image src={logo} alt="" className="logo-silver h-20 w-auto" />
             <p className="mt-6 text-sm leading-relaxed text-ink-muted">
               Wear luxury. Feel luxury. Be luxury. Premium streetwear from Nigeria. Orders are collected in person; we contact you after
               payment to arrange pickup.

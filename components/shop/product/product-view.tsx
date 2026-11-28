@@ -59,7 +59,7 @@ export function ProductView({ product }: { product: ProductViewData }) {
   return (
     <div className="lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-14">
       {/* Photos: swipe, or they move on by themselves */}
-      <div className="relative -mx-4 sm:mx-0 lg:sticky lg:top-24 lg:self-start">
+      <div className="relative -mx-4 sm:mx-0 lg:sticky lg:top-[calc(var(--header-total)+1.5rem)] lg:self-start">
         <div {...gallery.trackProps} className="no-scrollbar relative flex aspect-[4/5] snap-x snap-mandatory overflow-x-auto bg-surface-2 sm:rounded-3xl">
           {product.images.length ? (
             product.images.map((image, index) => (
@@ -169,7 +169,7 @@ export function ProductView({ product }: { product: ProductViewData }) {
           </fieldset>
         )}
 
-        <p role="status" className={`text-sm ${selected && selected.stock > 0 && selected.stock <= product.lowStock ? "text-[#b5bf86]" : "text-ink-muted"}`}>
+        <p role="status" className={`text-sm ${selected && selected.stock > 0 && selected.stock <= product.lowStock ? "text-army-glow" : "text-ink-muted"}`}>
           {stockMessage}
         </p>
 

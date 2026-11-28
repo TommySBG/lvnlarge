@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/collections/[slug
 
 export default function CollectionPage({ params }: PageProps<"/collections/[slug]">) {
   return (
-    <div className="mx-auto max-w-7xl px-3 pb-24 pt-24 sm:px-8 sm:pt-28">
+    <div className="mx-auto max-w-7xl px-3 pb-24 pt-[calc(var(--header-total)+1rem)] sm:px-8 sm:pt-[calc(var(--header-total)+2rem)]">
       <Link href="/collections" className="mb-5 inline-flex min-h-11 items-center px-2 text-xs uppercase tracking-[0.25em] text-ink-muted hover:text-silver-strong">
         ← All collections
       </Link>

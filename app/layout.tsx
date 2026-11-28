@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Manrope } from "next/font/google";
+import { Anton, Cinzel, Great_Vibes, Manrope } from "next/font/google";
 import { InlineScript } from "@/components/inline-script";
 import { ThemeSync } from "@/components/theme-sync";
 import "./globals.css";
@@ -7,6 +7,20 @@ import "./globals.css";
 // Placeholder typefaces until the owner confirms brand fonts.
 const display = Anton({
   variable: "--font-anton",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// Elegant luxury serif for the LVN'LARGE wordmark (welcome screen).
+const luxe = Cinzel({
+  variable: "--font-cinzel",
+  weight: ["600", "700"],
+  subsets: ["latin"],
+});
+
+// Bold flowing script for "Live Large. The World Is Yours."
+const script = Great_Vibes({
+  variable: "--font-greatvibes",
   weight: "400",
   subsets: ["latin"],
 });
@@ -38,7 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${display.variable} ${body.variable} h-full antialiased`}
+      className={`${display.variable} ${luxe.variable} ${script.variable} ${body.variable} h-full antialiased`}
     >
       <head>
         <InlineScript html={themeScript} />

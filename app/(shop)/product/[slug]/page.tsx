@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps<"/product/[slug]">)
 
 export default function ProductPage({ params }: PageProps<"/product/[slug]">) {
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-24 pt-20 sm:px-8 sm:pt-28">
+    <div className="mx-auto max-w-7xl px-4 pb-24 pt-[var(--header-total)] sm:px-8 sm:pt-[calc(var(--header-total)+2rem)]">
       <Suspense fallback={<div className="-mx-4 aspect-[4/5] animate-pulse bg-surface sm:mx-0 sm:rounded-3xl lg:w-1/2" />}>
         <ProductContent params={params} />
       </Suspense>

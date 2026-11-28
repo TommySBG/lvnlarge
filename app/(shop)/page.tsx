@@ -38,7 +38,7 @@ export default async function HomePage() {
     <>
       <WelcomeHero />
 
-      <section id="collections" aria-labelledby="collections-title" className="scroll-mt-16 overflow-hidden py-20 sm:py-28">
+      <section id="collections" aria-labelledby="collections-title" className="scroll-mt-[var(--header-total)] overflow-hidden py-20 sm:py-28">
         <div className="reveal mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHeading id="collections-title" eyebrow="The collections" title="LVN’LARGE Collections" />
         </div>

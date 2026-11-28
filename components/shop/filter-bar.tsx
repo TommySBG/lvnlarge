@@ -37,7 +37,7 @@ export function FilterBar({ filters, options, count }: { filters: Filters; optio
   ];
 
   return (
-    <div className="sticky top-[calc(4rem+env(safe-area-inset-top))] z-30 -mx-4 border-b border-line bg-bg/90 px-4 py-3 backdrop-blur-lg sm:-mx-8 sm:px-8">
+    <div className="sticky top-[var(--header-total)] z-30 -mx-4 border-b border-line bg-bg/90 px-4 py-3 backdrop-blur-lg sm:-mx-8 sm:px-8">
       <div className="flex items-center justify-between gap-3">
         <button
           type="button"

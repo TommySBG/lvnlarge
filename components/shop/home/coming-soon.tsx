@@ -49,7 +49,7 @@ export function ComingSoon({ items, background }: { items: ComingSoonItem[]; bac
               {words.map((word, i) => (
                 <span key={i} className="flex items-center gap-8 font-display text-3xl uppercase tracking-wide text-white/85 sm:text-4xl">
                   {word}
-                  <span className="text-lg text-[#9aa66a]">✦</span>
+                  <span className="text-lg text-army-glow">✦</span>
                 </span>
               ))}
             </div>

@@ -12,7 +12,7 @@ export type FolderData = {
 // Folder colours cycle through the brand palette.
 const tones = [
   { body: "bg-[#161718]", tab: "bg-[#161718]" },
-  { body: "bg-[#2c3218]", tab: "bg-[#2c3218]" },
+  { body: "bg-[#414d22]", tab: "bg-[#414d22]" },
   { body: "bg-[#3a3d42]", tab: "bg-[#3a3d42]" },
 ];
 

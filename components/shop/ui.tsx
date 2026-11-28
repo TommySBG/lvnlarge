@@ -47,7 +47,7 @@ export function PillLink({ href, children, variant = "solid" }: { href: string; 
 /** Page title block for inner pages (sits below the fixed header). */
 export function PageIntro({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <header className="mx-auto max-w-7xl px-4 pb-8 pt-28 sm:px-8 sm:pt-36">
+    <header className="mx-auto max-w-7xl px-4 pb-8 pt-[calc(var(--header-total)+2.5rem)] sm:px-8 sm:pt-[calc(var(--header-total)+4rem)]">
       <p className="animate-rise text-[11px] font-medium uppercase tracking-[0.35em] text-ink-muted">{eyebrow}</p>
       <h1 className="mt-3 animate-rise font-display text-6xl uppercase leading-[0.9] tracking-wide text-chrome [animation-delay:80ms] sm:text-8xl">
         {title}

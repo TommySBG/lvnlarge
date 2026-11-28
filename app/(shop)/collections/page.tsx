@@ -25,7 +25,7 @@ export default async function CollectionsPage() {
           <ol>
             {catalogue.collections.map((collection, index) => (
               // Folders stick under the header and stack like files in a drawer.
-              <li key={collection.id} className="sticky mb-6 sm:mb-10" style={{ top: `calc(4.5rem + ${Math.min(index, 6) * 0.9}rem)` }}>
+              <li key={collection.id} className="sticky mb-6 sm:mb-10" style={{ top: `calc(var(--header-total) + 0.75rem + ${Math.min(index, 6) * 0.9}rem)` }}>
                 <CollectionFolder folder={toFolder(catalogue, collection)} index={index} priority={index === 0} />
               </li>
             ))}
