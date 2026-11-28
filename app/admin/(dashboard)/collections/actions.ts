@@ -1,6 +1,7 @@
 "use server";
 
 import { refresh } from "next/cache";
+import { catalogueChanged } from "@/lib/shop/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/auth";
@@ -91,6 +92,7 @@ export async function updateCollection(
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Collection saved.");
 }
 
@@ -107,6 +109,7 @@ export async function moveCollection(collectionId: string, direction: -1 | 1): P
   const error = await saveOrder(supabase, "collections", order);
   if (error) return dbFailure(error);
   refresh();
+  catalogueChanged();
   return success("Order saved.");
 }
 
@@ -126,6 +129,7 @@ export async function deleteCollection(collectionId: string, _prev: ActionState,
   if (error) return dbFailure(error);
   if (data.cover_image_path) await supabase.storage.from(CATALOGUE_BUCKET).remove([data.cover_image_path]);
 
+  catalogueChanged();
   redirect("/admin/collections");
 }
 
@@ -153,6 +157,7 @@ export async function setCollectionCover(collectionId: string, path: string): Pr
   if (current?.cover_image_path) await supabase.storage.from(CATALOGUE_BUCKET).remove([current.cover_image_path]);
 
   refresh();
+  catalogueChanged();
   return success("Cover photo saved.");
 }
 
@@ -168,6 +173,7 @@ export async function removeCollectionCover(collectionId: string): Promise<Actio
   if (current?.cover_image_path) await supabase.storage.from(CATALOGUE_BUCKET).remove([current.cover_image_path]);
 
   refresh();
+  catalogueChanged();
   return success("Cover photo removed.");
 }
 
@@ -200,6 +206,7 @@ export async function addProductToCollection(
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Product added.");
 }
 
@@ -217,6 +224,7 @@ export async function removeProductFromCollection(collectionId: string, productI
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Product removed from collection.");
 }
 
@@ -248,5 +256,6 @@ export async function moveProductInCollection(
   }
 
   refresh();
+  catalogueChanged();
   return success("Order saved.");
 }

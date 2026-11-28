@@ -36,7 +36,7 @@ if (url && secret && publishable) {
     "admin_users", "product_types", "sizes", "size_guides", "products", "product_colours",
     "product_variants", "product_images", "collections", "collection_products", "subscribers",
     "carts", "cart_items", "orders", "order_items", "payments", "payment_events",
-    "order_status_history", "stock_movements", "admin_notifications",
+    "order_status_history", "stock_movements", "admin_notifications", "gallery_images",
   ];
   for (const table of tables) {
     const { count, error } = await db.from(table).select("*", { count: "exact" }).limit(1);

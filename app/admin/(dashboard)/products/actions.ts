@@ -1,6 +1,7 @@
 "use server";
 
 import { refresh } from "next/cache";
+import { catalogueChanged } from "@/lib/shop/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/auth";
@@ -143,6 +144,7 @@ export async function updateProductDetails(
   if (variantError) return dbFailure(variantError);
 
   refresh();
+  catalogueChanged();
   return success("Details saved.");
 }
 
@@ -173,6 +175,7 @@ export async function setProductStatus(
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success(statusMessages[parsed.data.status]);
 }
 
@@ -192,6 +195,7 @@ export async function deleteProduct(productId: string, _prev: ActionState, _form
   const paths = (images ?? []).map((image) => image.storage_path as string);
   if (paths.length) await supabase.storage.from(CATALOGUE_BUCKET).remove(paths);
 
+  catalogueChanged();
   redirect("/admin/products");
 }
 
@@ -327,6 +331,7 @@ export async function saveProductOptions(
   }
 
   refresh();
+  catalogueChanged();
   return success(
     keptOrdered
       ? "Saved. Some removed sizes/colours have orders, so they were switched off instead of deleted."
@@ -374,6 +379,7 @@ export async function saveStock(productId: string, _prev: ActionState, formData:
   }
 
   refresh();
+  catalogueChanged();
   return success(changed ? `Stock saved (${changed} updated).` : "No stock changes to save.");
 }
 
@@ -420,6 +426,7 @@ export async function recordProductImages(productId: string, paths: string[]): P
   }
 
   refresh();
+  catalogueChanged();
   return success(paths.length === 1 ? "Photo added." : `${paths.length} photos added.`);
 }
 
@@ -436,6 +443,7 @@ export async function setImageColour(imageId: string, colourId: string | null): 
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Photo colour saved.");
 }
 
@@ -461,6 +469,7 @@ export async function moveImage(imageId: string, direction: -1 | 1): Promise<Act
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Photo order saved.");
 }
 
@@ -480,6 +489,7 @@ export async function deleteImage(imageId: string): Promise<ActionState> {
 
   await supabase.storage.from(CATALOGUE_BUCKET).remove([image.storage_path]);
   refresh();
+  catalogueChanged();
   return success("Photo removed.");
 }
 
@@ -534,5 +544,6 @@ export async function setProductCollections(
   }
 
   refresh();
+  catalogueChanged();
   return success("Collections saved.");
 }

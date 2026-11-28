@@ -1,6 +1,7 @@
 "use server";
 
 import { refresh } from "next/cache";
+import { catalogueChanged } from "@/lib/shop/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/auth";
@@ -91,6 +92,7 @@ export async function saveSizeGuide(guideId: string, _prev: ActionState, formDat
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Size guide saved.");
 }
 
@@ -105,5 +107,6 @@ export async function deleteSizeGuide(guideId: string, _prev: ActionState, _form
   const { error } = await supabase.from("size_guides").delete().eq("id", id.data);
   if (error) return dbFailure(error);
 
+  catalogueChanged();
   redirect("/admin/size-guides");
 }

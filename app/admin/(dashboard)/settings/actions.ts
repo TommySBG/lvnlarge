@@ -1,6 +1,7 @@
 "use server";
 
 import { refresh } from "next/cache";
+import { catalogueChanged } from "@/lib/shop/cache";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
@@ -47,6 +48,7 @@ export async function addListItem(table: ListTable, _prev: ActionState, formData
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success(`Added “${name.data}”.`);
 }
 
@@ -71,6 +73,7 @@ export async function renameListItem(
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Saved.");
 }
 
@@ -88,6 +91,7 @@ export async function moveListItem(table: ListTable, id: string, direction: -1 |
   const error = await saveOrder(supabase, t.data, order);
   if (error) return dbFailure(error);
   refresh();
+  catalogueChanged();
   return success("Order saved.");
 }
 
@@ -105,5 +109,6 @@ export async function deleteListItem(table: ListTable, id: string): Promise<Acti
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success("Deleted.");
 }

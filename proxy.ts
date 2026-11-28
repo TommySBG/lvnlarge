@@ -1,14 +1,37 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { ENTRY_COOKIE } from "@/lib/shop/entry";
 
 /**
- * Runs before every /admin request:
+ * Runs before every page request.
+ *
+ * Shop pages: the email gate is compulsory (owner decision), so visitors who
+ * haven't entered their email yet are sent to /enter first.
+ *
+ * Admin pages:
  *  1. Refreshes the Supabase login cookie so sessions don't silently expire.
  *  2. Quickly sends logged-out visitors to the login page.
- * This is only a first gate — every admin page and action still calls
- * requireAdmin(), and Row Level Security protects the data itself.
+ *  This is only a first gate — every admin page and action still calls
+ *  requireAdmin(), and Row Level Security protects the data itself.
  */
 export async function proxy(request: NextRequest) {
+  const { pathname, search } = request.nextUrl;
+
+  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
+    return adminGate(request);
+  }
+
+  const hasEntered = request.cookies.get(ENTRY_COOKIE)?.value === "1";
+  if (pathname === "/enter") return NextResponse.next();
+  if (!hasEntered) {
+    const url = new URL("/enter", request.url);
+    if (pathname !== "/") url.searchParams.set("next", `${pathname}${search}`);
+    return NextResponse.redirect(url);
+  }
+  return NextResponse.next();
+}
+
+async function adminGate(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(
@@ -53,5 +76,7 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin", "/admin/:path*"],
+  // Everything except Next.js internals, API routes and static files
+  // (brand images, icons, robots.txt, etc.).
+  matcher: ["/((?!_next/|api/|brand/|favicon\\.ico|.*\\.(?:png|jpg|jpeg|webp|svg|ico|txt|xml|webmanifest)$).*)"],
 };

@@ -99,7 +99,7 @@ export async function uniqueSlug(
 /** Rewrites sort_order as 10, 20, 30… in the given id order. */
 export async function saveOrder(
   supabase: SupabaseClient,
-  table: "collections" | "product_types" | "sizes" | "product_images" | "product_colours",
+  table: "collections" | "product_types" | "sizes" | "product_images" | "product_colours" | "gallery_images",
   orderedIds: string[],
 ) {
   for (const [index, id] of orderedIds.entries()) {

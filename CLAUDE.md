@@ -130,7 +130,7 @@ The website header should contain:
 1. Home
 2. Living Large Collections
 3. Shop All
-4. Gallery Dept.
+4. LVN Gallery
 5. About
 
 Additional controls:
@@ -673,9 +673,9 @@ Security requirements:
 
 ---
 
-## 17. GALLERY DEPT.
+## 17. LVN GALLERY
 
-Gallery Dept. is a fashion lookbook and editorial gallery, not another product catalogue.
+LVN Gallery (renamed from "Gallery Dept." — owner decision, see §27) is a fashion lookbook and editorial gallery, not another product catalogue.
 
 It should contain:
 
@@ -1149,7 +1149,7 @@ PHASE 2 — Brand Experience and Frontend
 - Homepage.
 - Collections.
 - Shop All.
-- Gallery Dept.
+- LVN Gallery.
 - About.
 - Theme switching.
 
@@ -1263,12 +1263,26 @@ Decisions the owner has confirmed. These override earlier open items above.
 - Low-stock warning when a size/colour has 3 or fewer left (adjustable per product).
 - Size measurements are not available yet; the owner fills in size guides later from the admin.
 - The admin dashboard is mobile-first (see Section 19).
+- "Gallery Dept." is renamed **LVN Gallery** everywhere (avoids clashing with an existing fashion brand's name).
+
+### Storefront design decisions (step 3)
+
+- Look: premium and luxury, not plain. Black, silver (brushed-chrome type like the logo) and deep army green, with smooth, purposeful animations that respect reduced-motion settings. The owner's screenshots, motion-clothing-brand.vercel.app and bolapsd.xyz are inspiration only — never copied.
+- Mobile-first: every storefront screen must look great on an iPhone first, then scale up to desktop.
+- Brand assets: logo `public/brand/logo.png` (silver LL, transparent background); welcome photo `public/brand/welcome.jpg` (founder).
+- Email entry: a small glass box, centred and standing out on the phone screen, over a blurred campaign photo (owner's screenshot 1). Optional, unticked marketing box. After "Thank you for subscribing." the visitor goes into the store. The browser remembers the visitor for a year.
+- Home page order: full-screen welcome → LVN'LARGE Collections as a 3D card carousel (featured collections first) with a "View all" button → LVN Gallery preview as a notebook of clipped photos with a "View the gallery" button → Coming Soon (campaign photo with the upcoming pieces over it; teasers: rings, wristwatches, chains, shades, beanies, belts) → New In → brand line → footer.
+- Collections page: each collection is a file folder — numbered tab, the collection name in big bold letters, and the clothes inside sliding past in the background. Folders stack while scrolling.
+- Shop All: product grid with an army-green price tag and colour circles on every card; swipe a card's photo to see each colour. Filters for collection, type, size, colour, price, in stock and new in, plus search and sort.
+- Product page: photos swipe by themselves (and by hand). Colours are small round circles in the real colour; tapping one jumps straight to that colour's photos. For this to work, each photo needs its "Shows colour" set in the admin. Size guide opens in a pop-up.
+- Complete the Look = other pieces from the Combine You collection.
+- About page: the logo on the left, a short history of how it all started beside it, then the footer. The story is a clearly marked placeholder until the owner provides it.
 
 ### Approved roadmap
 
 1. Foundation — database, admin login, theme. (Complete)
-2. Admin: products, photos, sizes/colours, stock, collections, size guides, settings.
-3. Storefront — email entry, welcome screen, navigation, home, collections, Shop All, product pages.
+2. Admin: products, photos, sizes/colours, stock, collections, size guides, settings. (Complete)
+3. Storefront — email entry, welcome screen, navigation, home, collections, Shop All, product pages, LVN Gallery, About. (Built — owner testing)
 4. Bag and payment — bag, persistent bag, checkout, Paystack, stock validation, confirmation screen.
 5. Orders — admin orders and pickup workflow, order tracking, PDF receipt, confirmation email, CSV export, Sales page.
 6. Launch prep — security review, mobile testing, paid hosting, Paystack live mode after approval.

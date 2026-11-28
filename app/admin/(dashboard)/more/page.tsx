@@ -5,6 +5,8 @@ import { logout } from "../../actions";
 export const metadata = { title: "More" };
 
 const links = [
+  { href: "/admin/sign-ups", label: "Sign-ups", hint: "Emails from the store entrance, plus CSV download" },
+  { href: "/admin/gallery", label: "LVN Gallery", hint: "Lookbook photos for the home page and Gallery" },
   { href: "/admin/size-guides", label: "Size guides", hint: "Measurement charts for each garment type" },
   { href: "/admin/settings", label: "Settings", hint: "Product types and sizes" },
 ];

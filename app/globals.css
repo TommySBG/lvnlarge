@@ -76,7 +76,100 @@ body {
   outline-offset: 2px;
 }
 
+/* ── Motion (all respect reduced-motion below) ── */
+@theme {
+  --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade: fade 1.4s ease-out both;
+  --animate-kenburns: kenburns 22s ease-out both;
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-sheen: sheen 4s ease-in-out infinite;
+  --animate-scroll-cue: scroll-cue 2.2s ease-in-out infinite;
+  --animate-sheet: sheet 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.12); }
+    to { transform: scale(1); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes sheen {
+    0%, 60% { background-position: 200% 0; }
+    100% { background-position: -100% 0; }
+  }
+  @keyframes scroll-cue {
+    0% { transform: scaleY(0); transform-origin: top; }
+    45% { transform: scaleY(1); transform-origin: top; }
+    55% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+  @keyframes sheet {
+    from { transform: translateY(100%); }
+    to { transform: none; }
+  }
+}
+
+/* Site header: solid by default; transparent with white text while the home
+   page's welcome photo is behind it (the hero sets data-past-hero when it
+   scrolls away). */
+.site-header {
+  color: var(--ink);
+  background: color-mix(in oklab, var(--bg) 82%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+html:not([data-past-hero]) body:has([data-hero]) .site-header {
+  color: #fff;
+  background: transparent;
+  border-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Brushed-chrome text, like the logo. */
+.text-chrome {
+  background: linear-gradient(100deg, #8d9096 0%, #f4f5f7 22%, #a9acb2 45%, #ffffff 58%, #8d9096 80%, #d9dbde 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-theme="light"] .text-chrome {
+  background-image: linear-gradient(100deg, #2b2d31 0%, #6f7278 30%, #1f2023 55%, #55585e 80%, #2b2d31 100%);
+}
+
+/* Sections gently rise into view while scrolling (no JavaScript needed). */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+/* Horizontal swipers: snap, no visible scrollbar. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none !important;
+  }
   *,
   *::before,
   *::after {

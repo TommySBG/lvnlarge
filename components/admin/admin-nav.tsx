@@ -12,7 +12,7 @@ const items = [
   { href: "/admin/more", label: "More", icon: "M5 12h.01M12 12h.01M19 12h.01" },
 ];
 
-const moreRoutes = ["/admin/more", "/admin/size-guides", "/admin/settings"];
+const moreRoutes = ["/admin/more", "/admin/size-guides", "/admin/settings", "/admin/sign-ups", "/admin/gallery"];
 
 function isActive(pathname: string, href: string) {
   if (href === "/admin") return pathname === "/admin";
@@ -39,7 +39,7 @@ function TopNavWithPath() {
 function TopNav({ pathname }: { pathname: string }) {
   return (
     <nav aria-label="Admin" className="hidden items-center gap-1 md:flex">
-      {items.slice(0, 4).map((item) => (
+      {items.map((item) => (
         <Link
           key={item.href}
           href={item.href}
@@ -49,20 +49,6 @@ function TopNav({ pathname }: { pathname: string }) {
           {item.label}
         </Link>
       ))}
-      <Link
-        href="/admin/size-guides"
-        aria-current={pathname.startsWith("/admin/size-guides") ? "page" : undefined}
-        className="rounded-full px-4 py-2 text-sm text-ink-muted transition-colors hover:text-silver-strong aria-[current=page]:bg-surface-2 aria-[current=page]:text-silver-strong"
-      >
-        Size guides
-      </Link>
-      <Link
-        href="/admin/settings"
-        aria-current={pathname.startsWith("/admin/settings") ? "page" : undefined}
-        className="rounded-full px-4 py-2 text-sm text-ink-muted transition-colors hover:text-silver-strong aria-[current=page]:bg-surface-2 aria-[current=page]:text-silver-strong"
-      >
-        Settings
-      </Link>
     </nav>
   );
 }

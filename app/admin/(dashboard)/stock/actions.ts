@@ -1,6 +1,7 @@
 "use server";
 
 import { refresh } from "next/cache";
+import { catalogueChanged } from "@/lib/shop/cache";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
@@ -23,5 +24,6 @@ export async function adjustStock(variantId: string, change: number): Promise<Ac
   if (error) return dbFailure(error);
 
   refresh();
+  catalogueChanged();
   return success(`Stock is now ${data}.`);
 }
